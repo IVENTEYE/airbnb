@@ -1,27 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .tag {
+    @apply px-4 text-sm py-2 border rounded-full cursor-pointer transition transform duration-100 ease-out hover:shadow-lg active:scale-95 active:bg-gray-100
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: Cabin, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 1905px;
+  margin: 0 auto;
+}
+
+.header-datepicker {
+  top: 61px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 200ms ease-in;
+}
+
+.header-datepicker.active {
+  top: 82px;
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (min-width: 768px) {
+  .poster {
+    background-position: 25% 100% !important;
+  }
+}
+
+@media (min-width: 320px) {
+  .poster {
+    background-position: 39% 100% !important;
+  }
+}
+
+@media (max-width: 580px) {
+  .rdrDefinedRangesWrapper {
+    display: none;
+  }
+  .rdrDateRangePickerWrapper, .rdrDateRangeWrapper, .rdrMonthsVertical .rdrMonth {
+    width: 100%;
+  }
 }
